@@ -1,24 +1,24 @@
+import hibernate.User;
 import netscape.javascript.JSObject;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
+import org.hibernate.dialect.MySQL5Dialect;
+import org.hibernate.dialect.MariaDBDialect;
 
 import org.json.*;
 
 import javax.swing.*;
 import javax.xml.crypto.Data;
 import java.net.InetSocketAddress;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ChatWebsocketServer extends WebSocketServer {
 
     private static int TCP_PORT = 4444;
     private HashMap<Long, WebSocket> userConnections;
     private HashMap<WebSocket, Long> userIds;
-
+    private List<User> loggedUsers;
 
     private final String USERNAME = "username";
     private final String PASSWORD = "password";
@@ -32,33 +32,42 @@ public class ChatWebsocketServer extends WebSocketServer {
         super(new InetSocketAddress(TCP_PORT));
         userConnections = new HashMap<Long, WebSocket>();
         userIds = new HashMap<WebSocket, Long>();
+        loggedUsers = new ArrayList<User>();
     }
 
     @Override
     public void onOpen(WebSocket socket, ClientHandshake handshake) {
         Map<String, String> urlParams = UrlParser(handshake.getResourceDescriptor());
 
+
         String userName = urlParams.get(USERNAME);
         String passWord = urlParams.get(PASSWORD);
 
         if(urlParams.get(ACTION).equals("/login")){
-            long userId = DatabaseManager.getUserId(userName);
-            if(userId > 0){
-                userConnections.put(userId, socket);
-                userIds.put(socket, userId);
-                socket.send(MessageManager.getSuccessMessage(userId));
+            User user = DatabaseManager.getInstance().getUser(userName, passWord);
+            if(user != null){
+                userConnections.put(user.getId(), socket);
+                userIds.put(socket, user.getId());
+                loggedUsers.add(user);
+                socket.send(MessageManager.getSuccessMessage(user.getId()));
             } else {
                 socket.send(MessageManager.getErrorMessage(LOGIN_ERROR_CODE));
                 socket.close(LOGIN_ERROR_CODE, LOGIN_ERROR_MSG);
             }
         } else if (urlParams.get(ACTION).equals("/register")){
-            boolean isRegistered = DatabaseManager.createUser(userName, passWord);
+            boolean isRegistered = DatabaseManager.getInstance().createUser(userName, passWord);
+            User user = DatabaseManager.getInstance().getUser(userName, passWord);
 
             if(isRegistered == true) {
-                socket.send(MessageManager.getSuccessMessage(DatabaseManager.getUserId(userName)));
+                userConnections.put(user.getId(), socket);
+                userIds.put(socket, user.getId());
+                loggedUsers.add(user);
+                socket.send(MessageManager.getSuccessMessage(DatabaseManager.getInstance().getUserId(userName)));
             } else {
                 socket.send(MessageManager.getErrorMessage(USED_NAME_ERROR_CODE));
             }
+        } else if(urlParams.get(ACTION).equals("/logout")) {
+
         }
 
         System.out.println("New connection from " + socket.getRemoteSocketAddress().getAddress().getHostAddress());
@@ -76,11 +85,20 @@ public class ChatWebsocketServer extends WebSocketServer {
     public void onMessage(WebSocket socket, String message) {
         try {
             JSONObject response = new JSONObject(message);
-            long receiverId =  response.getInt("receiver");
-            WebSocket receiverSocket = userConnections.get(receiverId);
 
-            receiverSocket.send(MessageManager.getClientMessage(userIds.get(socket), response.getString("message")));
-//
+            if(response.getString("type").equals("command")) {
+                if(response.getJSONObject("info").getString("commandName").equals("getOnlineUsers")){
+                    socket.send(MessageManager.getAllLoggedUsersMessage(loggedUsers, response.getJSONObject("info").getString("commandUniqueVal"))) ;
+                }
+
+            } else if(response.getString("type").equals("message")) {
+
+                long receiverId =  response.getJSONObject("info").getLong("receiver");
+                WebSocket receiverSocket = userConnections.get(receiverId);
+                receiverSocket.send(MessageManager.getClientMessage(userIds.get(socket), response.getJSONObject("info").getString("message")));
+            }
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

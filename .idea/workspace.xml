@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56b27a56-45f9-4915-8c74-1ead3d7fa00d" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="56b27a56-45f9-4915-8c74-1ead3d7fa00d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/ChatWebsocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ChatWebsocketServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MessageManager$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MessageManager$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/MessageManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/MessageManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MessageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/User.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,22 +38,29 @@
   </component>
   <component name="ProjectId" id="1VQXNSs5OFv7gyTjwOqWrnJ0ZAZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="E:/java_projects/CrUUD/crud" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ivang\Downloads\TooTallNate-Java-WebSocket-v1.4.0-44-g89df856\ChatServer\src\main\resources" />
+      <recent name="C:\Users\ivang\Downloads\TooTallNate-Java-WebSocket-v1.4.0-44-g89df856\ChatServer\src\main\java\resources" />
+      <recent name="C:\Users\ivang\Downloads\TooTallNate-Java-WebSocket-v1.4.0-44-g89df856\ChatServer\src\main\java" />
+      <recent name="C:\Users\ivang\Downloads\TooTallNate-Java-WebSocket-v1.4.0-44-g89df856\ChatServer\src\main" />
+      <recent name="C:\Users\ivang\Downloads\TooTallNate-Java-WebSocket-v1.4.0-44-g89df856\ChatServer\src\hibernate" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="ChatMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -56,6 +75,18 @@
         <item itemvalue="Application.ChatMain" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -75,52 +106,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ChatWebsocketServer.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Remote">
-        <watch expression="urlParams.get(ACTION);" language="JAVA" />
-      </configuration>
-    </watches-manager>
+  <component name="WindowStateProjectService">
+    <state x="379" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1602853214223">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="379" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1602853214223" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ChatServer$ChatMain.ic" NAME="ChatMain Coverage Results" MODIFIED="1577202371968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

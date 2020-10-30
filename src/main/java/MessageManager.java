@@ -1,13 +1,16 @@
+import hibernate.User;
 import org.java_websocket.WebSocket;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class MessageManager {
 
 
-    private static HashMap<Integer, String> errCodes = new HashMap<Integer, String>() {{
+    private static HashMap<Integer, String> errCodes = new HashMap<Intege   r, String>() {{
         put(4000, "Wrong username or password");
         put(4001, "Username is already used.");
     }};
@@ -34,7 +37,7 @@ public class MessageManager {
 
     private static String getMessage(String type, JSONObject response) throws JSONException {
         JSONObject message = new JSONObject();
-        message.put("Type", type);
+        message.put("type", type);
         message.put("response", response);
 
         return message.toString();
@@ -60,7 +63,7 @@ public class MessageManager {
         try {
             response.put("message", "Successful");
             message =  getMessage("Success", response);
-        } catch (JSONException e) {
+        } catch (JSONException e) {  
             e.printStackTrace();
         }
 
@@ -68,5 +71,31 @@ public class MessageManager {
 
     }
 
+    public static String getAllLoggedUsersMessage(List<User> loggedUsers, String uniqueVal){
+        JSONObject response = new JSONObject();
+        JSONArray users = new JSONArray();
+        String message = null;
+        int i = 0;
+
+        try{
+            for (User u : loggedUsers) {
+                JSONObject user = new JSONObject();
+
+                user.put("id", u.getId());
+                user.put("userName", u.getUserName());
+                users.put(user);
+            }
+            response.put("commandUniqueVal", uniqueVal);
+            response.put("users", users);
+
+            message = getMessage("command", response);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return message;
+
+    }
 
 }
